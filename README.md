@@ -40,6 +40,6 @@ When the connection with PuTTY is first made, a `>` character should appear, wai
 
 Edit the `hw_config.c` file to match the board you are using.
 
-New board: MISO = GP12, SCK = GP14, MOSI = GP15, SS = GP13.
+New board: MISO = GP12, SCK = GP14, MOSI = GP15, SS = GP13, port = spi1
 
-Old board: MSIO = ?? ... 
+Old board: MISO = GP4, SCK = GP2, MOSI = GP3, SS = GP1, port = spi0
