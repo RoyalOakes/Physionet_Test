@@ -1,0 +1,43 @@
+/**
+ * This file contains all functions related to recieveing user input from a
+ * the terminal. The two main functions are blocking_get_user_input and 
+ * timeout_get_user_input. There are helper functions for handling ANSI 
+ * escape sequences, backspaces, and the user input queue.
+ */
+
+// Avoid double inclusion.
+
+#ifndef BME463_USER_INPUT_H /* BME463_USER_INPUT_H */
+#define BME463_USER_INPUT_H
+
+////////////////////////////////////////////////////////////////////////////////
+// INCLUDE
+////////////////////////////////////////////////////////////////////////////////
+
+#include <stdio.h>
+#include <string.h>
+#include "pico/stdlib.h"
+#include "term.h"
+
+////////////////////////////////////////////////////////////////////////////////
+// DEFINES
+////////////////////////////////////////////////////////////////////////////////
+
+#define USR_QUEUE_ENTRY_LEN 32  /* Maximum number of chars in a user input. */
+#define USR_QUEUE_ENTRY_DEPTH 8 /* Number of entries in the user input queue. */
+
+////////////////////////////////////////////////////////////////////////////////
+// EXTERNAL VARIABLES
+////////////////////////////////////////////////////////////////////////////////
+
+extern char uib[USR_QUEUE_ENTRY_LEN]; // User input buffer.
+extern char uiq[USR_QUEUE_ENTRY_DEPTH][USR_QUEUE_ENTRY_LEN]; // User input queue.
+
+////////////////////////////////////////////////////////////////////////////////
+// PROTOTYPES
+////////////////////////////////////////////////////////////////////////////////
+
+size_t blocking_get_user_input(char const*);
+int timeout_get_user_input(char const* );
+
+#endif /* BME463_USER_INPUT_H */
